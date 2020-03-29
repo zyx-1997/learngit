@@ -3,7 +3,7 @@ import os.path
 import re
 
 list=[]
-word1={}
+words={}
 
 def read_file(path,list):
     file_list=os.listdir(path)
@@ -16,14 +16,15 @@ def read_file(path,list):
                 file_data=f.read()
                 list.append(file_data)
 
-def count(txt):
-     r = re.compile(r"[,!\*\.]")
-     for line in txt:
-        words=r.sub("",line.strip()).split(" ")
-        for word in words:
-            if word in word1:
-                word1[word]+=1
-            word1.setdefault(word,1)
+# def count(txt):
+#      for line in txt:
+#          line = re.sub(r"[0-9]+", " ", line)
+#          word1 = re.sub(r"([^A-Za-z\s])+", "", line.strip()).split()
+#      for word in word1:
+#          word = word.lower()
+#          if word in words:
+#              words[word] += 1
+#          words.setdefault(word, 1)
 
 
 
@@ -35,7 +36,7 @@ print(list)
 print(length)
 
 with open("test.txt", "w",encoding='utf-8') as f:
-    f.write(list)
-with open("test.txt", "r",encoding='utf-8') as f:
-    count(f)
-print(word1)
+    f.write(list) #Merge all files into one txt file called text.txt
+# with open("test.txt", "r",encoding='utf-8') as f:
+#     count(f)
+# print(words)
